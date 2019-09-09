@@ -5,7 +5,7 @@ let taskSchema = mongoose.Schema({
         
     },
     
-    assignto: mongoose.Schema.Types.ObjectId,
+    assignto: String,
     
     duedate: {
         type: Date,
@@ -16,7 +16,7 @@ let taskSchema = mongoose.Schema({
         type: String,  
         validate: {
             validator: function (status) {
-                return status.equals("In progress") && status.equals("Complete");
+                return status=="In progress" || status=="Complete";
             },
             message: 'status should be In progress or Complete'
         }      

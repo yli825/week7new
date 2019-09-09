@@ -12,13 +12,12 @@ let developerSchema = mongoose.Schema({
         require: true ,
         validate: {
             validator: function (level) {
-                return level.equals("Beginner") && status.equals("Expert");
+                return (level== "BEGINNER" || level=="EXPERT");
             },
             message: 'level should be either Beginner or Expert'
         }      
     },
-
-    Address: {
+    address: {
         state: String,
         suburb: String,
         street: String,
