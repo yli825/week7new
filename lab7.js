@@ -132,6 +132,10 @@ app.post('/updatetaskdata', function (req, res) {
     res.redirect('/gettask');
 });
 
+let sortBy={name:-1}
+Task.where("name").limit(5).sort(sortBy).exec(function (err, docs) {
+    console.log(docs);
+});
 
 
 
